@@ -37,15 +37,17 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-[#2D5016]/10 border border-[#2D5016]/20 rounded-2xl p-8 text-center">
-        <p className="text-2xl mb-2">🌱</p>
-        <h3 className="font-display text-xl font-semibold text-[#2D5016] mb-2">Message Sent!</h3>
-        <p className="text-[#3E2723]">
-          Thank you for reaching out. We&apos;ll get back to you soon.
+      <div className="border border-[#E7E5E4] bg-[#FAFAF9] p-8">
+        <span className="block font-mono text-[11px] tracking-widest text-[#78716C] mb-3">
+          / SENT
+        </span>
+        <h3 className="font-display text-xl font-medium text-[#0A0A0A] mb-2 tracking-[-0.02em]">Message received.</h3>
+        <p className="text-sm text-[#57534E] leading-relaxed mb-5">
+          Thank you for reaching out. A member of our team will get back to you shortly.
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-4 text-sm text-[#C4713B] underline underline-offset-2"
+          className="text-sm font-medium text-[#0A0A0A] underline underline-offset-4 decoration-[#E7E5E4] hover:decoration-[#0A0A0A] transition-colors"
         >
           Send another message
         </button>
@@ -53,13 +55,16 @@ export default function ContactForm() {
     );
   }
 
+  const fieldClass =
+    "w-full h-11 px-3.5 rounded-md border border-[#E7E5E4] bg-white text-[15px] text-[#0A0A0A] placeholder:text-[#A8A29E] focus:outline-none focus:border-[#0A0A0A] transition-colors";
+  const labelClass =
+    "block text-[11px] font-semibold tracking-[0.12em] uppercase text-[#57534E] mb-2";
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-[#3E2723] mb-1.5" htmlFor="name">
-            Name
-          </label>
+          <label className={labelClass} htmlFor="name">Name</label>
           <input
             id="name"
             name="name"
@@ -67,13 +72,11 @@ export default function ContactForm() {
             required
             value={form.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-[#e8e0d4] bg-white text-[#3E2723] focus:outline-none focus:ring-2 focus:ring-[#2D5016]"
+            className={fieldClass}
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#3E2723] mb-1.5" htmlFor="email">
-            Email
-          </label>
+          <label className={labelClass} htmlFor="email">Email</label>
           <input
             id="email"
             name="email"
@@ -81,22 +84,20 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-[#e8e0d4] bg-white text-[#3E2723] focus:outline-none focus:ring-2 focus:ring-[#2D5016]"
+            className={fieldClass}
           />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-[#3E2723] mb-1.5" htmlFor="subject">
-          Subject
-        </label>
+        <label className={labelClass} htmlFor="subject">Subject</label>
         <select
           id="subject"
           name="subject"
           required
           value={form.subject}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-[#e8e0d4] bg-white text-[#3E2723] focus:outline-none focus:ring-2 focus:ring-[#2D5016]"
+          className={fieldClass}
         >
           <option value="">Select a subject</option>
           <option value="General Inquiry">General Inquiry</option>
@@ -107,9 +108,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-[#3E2723] mb-1.5" htmlFor="message">
-          Message
-        </label>
+        <label className={labelClass} htmlFor="message">Message</label>
         <textarea
           id="message"
           name="message"
@@ -117,7 +116,7 @@ export default function ContactForm() {
           rows={5}
           value={form.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-[#e8e0d4] bg-white text-[#3E2723] focus:outline-none focus:ring-2 focus:ring-[#2D5016] resize-none"
+          className="w-full px-3.5 py-3 rounded-md border border-[#E7E5E4] bg-white text-[15px] text-[#0A0A0A] placeholder:text-[#A8A29E] focus:outline-none focus:border-[#0A0A0A] resize-none transition-colors"
         />
       </div>
 
@@ -128,9 +127,12 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full py-3 rounded-xl bg-[#2D5016] text-white font-semibold hover:bg-[#3d6b1f] transition-colors disabled:opacity-60"
+        className="inline-flex items-center h-11 px-6 rounded-md bg-[#0A0A0A] text-white text-sm font-medium hover:bg-[#292524] transition-colors disabled:opacity-60"
       >
-        {status === "loading" ? "Sending..." : "Send Message"}
+        {status === "loading" ? "Sending…" : "Send message"}
+        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
       </button>
     </form>
   );

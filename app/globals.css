@@ -1,19 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  /* Farm Colors */
-  --color-green: #2D5016;
-  --color-green-light: #3d6b1f;
-  --color-earth: #C4713B;
-  --color-earth-light: #d4855a;
-  --color-cream: #FAF6F0;
-  --color-soil: #3E2723;
-  --color-gold: #D4A843;
-  --color-gold-light: #e0bc6a;
+  /* ---------- Brand ---------- */
+  /* Forest green retained as brand soul, darker, more institutional */
+  --color-green: #1F3A0F;
+  --color-green-deep: #142706;
+  --color-green-light: #2D5016;
+
+  /* Accents, used sparingly */
+  --color-accent: #B85C2C;      /* tightened terracotta */
+  --color-accent-hover: #9E4C22;
+  --color-gold: #B38A3A;
+
+  /* ---------- Neutral scale (the real workhorse) ---------- */
+  --color-ink: #0A0A0A;         /* primary text / CTAs */
+  --color-ink-80: #1C1917;
+  --color-ink-70: #292524;
+  --color-ink-60: #57534E;      /* body secondary */
+  --color-ink-40: #78716C;      /* tertiary */
+  --color-ink-20: #A8A29E;
+
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #FAFAF9; /* stone-50 */
+  --color-surface-mute: #F5F5F4; /* stone-100 */
+  --color-line: #E7E5E4;        /* stone-200 */
+  --color-line-strong: #D6D3D1; /* stone-300 */
 
   /* Fonts */
   --font-display: var(--font-fraunces), 'Georgia', serif;
   --font-body: var(--font-dm-sans), 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 html {
@@ -21,11 +37,65 @@ html {
 }
 
 body {
-  background-color: #FAF6F0;
-  color: #3E2723;
+  background-color: #FFFFFF;
+  color: #0A0A0A;
   font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+/* Display headings: tight tracking, lighter weight, the "wealthy tech firm" look.
+   Color is intentionally omitted so headings inherit from their parent, letting
+   dark-background heroes (text-white) render correctly without being overridden. */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  color: inherit;
+}
+
+h1 { letter-spacing: -0.035em; line-height: 1.02; }
+h2 { letter-spacing: -0.03em; line-height: 1.08; }
+
+/* Eyebrow label utility */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #57534E;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum", "zero";
+}
+
+/* Numeric rhythm */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Subtle grain for hero overlays (optional) */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid #0A0A0A;
+  outline-offset: 2px;
+}
+
+/* Thin top-level rule */
+.rule {
+  height: 1px;
+  background: #E7E5E4;
+  width: 100%;
 }

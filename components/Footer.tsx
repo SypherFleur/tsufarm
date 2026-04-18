@@ -9,10 +9,10 @@ const quickLinks = [
   { label: "About", href: "/about" },
   { label: "Events", href: "/events" },
   { label: "Get Involved", href: "/get-involved" },
-  { label: "Meet the Team", href: "/meet-the-team" },
+  { label: "Team", href: "/meet-the-team" },
   { label: "Newsletter", href: "/newsletter" },
   { label: "Contact", href: "/contact" },
-  { label: "Support Us", href: "/support" },
+  { label: "Support", href: "/support" },
 ];
 
 export default function Footer() {
@@ -41,58 +41,95 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#2D5016] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <Image
-                src="/images/logo.png"
-                alt="TSU Community Farm Logo"
-                width={44}
-                height={44}
-                className="rounded-full"
-              />
-              <p className="font-display text-2xl font-bold">TSU Community Farm</p>
+    <footer className="bg-[#0A0A0A] text-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-20 pb-10">
+        {/* Top: large mark */}
+        <div className="pb-14 border-b border-white/10">
+          <div className="flex items-start justify-between gap-10 flex-wrap">
+            <div className="max-w-md">
+              <div className="flex items-center gap-3 mb-5">
+                <Image
+                  src="/images/logo.png"
+                  alt="TSU Community Farm"
+                  width={36}
+                  height={36}
+                  className="rounded-full"
+                />
+                <p className="font-display text-lg font-medium tracking-tight">TSU Community Farm</p>
+              </div>
+              <p className="font-display text-3xl sm:text-4xl font-medium tracking-[-0.03em] leading-[1.1] text-white mb-4">
+                Discover.<br />
+                Connect.<br />
+                Grow.
+              </p>
             </div>
-            <p className="text-green-200 text-sm italic mb-4">Discover. Connect. Grow.</p>
-            <address className="not-italic text-sm text-green-100 space-y-1">
-              <p>3216 Blodgett, Houston, TX</p>
-              <a
-                href="mailto:Tsucommunityfarm@gmail.com"
-                className="block hover:text-[#D4A843] transition-colors"
-              >
-                Tsucommunityfarm@gmail.com
-              </a>
-              <a
-                href="https://instagram.com/tsufarm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-[#D4A843] transition-colors"
-              >
-                @tsufarm on Instagram
-              </a>
+
+            <div className="max-w-md w-full sm:w-auto">
+              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/50 mb-3">
+                Newsletter
+              </p>
+              <p className="text-sm text-white/70 mb-4 max-w-xs leading-relaxed">
+                Seasonal dispatches from the farm. No spam, just what&apos;s growing.
+              </p>
+              {status === "success" ? (
+                <p className="text-sm text-white font-medium">You&apos;re subscribed.</p>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex gap-2">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@email.com"
+                    required
+                    className="flex-1 h-10 px-3.5 rounded-md bg-white/10 border border-white/15 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-white/40"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="h-10 px-4 rounded-md bg-white text-[#0A0A0A] text-sm font-medium hover:bg-white/90 transition-colors disabled:opacity-60"
+                  >
+                    {status === "loading" ? "…" : "Subscribe"}
+                  </button>
+                </form>
+              )}
+              {status === "error" && (
+                <p className="mt-2 text-xs text-red-300">Something went wrong. Try again.</p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-14">
+          <div className="md:col-span-5">
+            <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/50 mb-4">
+              Visit
+            </p>
+            <address className="not-italic text-sm text-white/80 space-y-1.5 leading-relaxed">
+              <p>3216 Blodgett Street</p>
+              <p>Houston, TX</p>
+              <p className="text-white/50 mt-2">Farmer&apos;s Stand · Saturdays 9 AM – 12 PM</p>
               <a
                 href="https://maps.app.goo.gl/av9cUHyXnpRVQbCA9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block hover:text-[#D4A843] transition-colors"
+                className="inline-block mt-3 text-white hover:text-white/70 underline underline-offset-4 decoration-white/30"
               >
-                View on Google Maps ↗
+                Open in Google Maps ↗
               </a>
             </address>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-display text-lg font-semibold mb-4 text-[#D4A843]">Quick Links</h3>
-            <ul className="space-y-1">
+          <div className="md:col-span-3">
+            <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/50 mb-4">
+              Navigate
+            </p>
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-green-100 hover:text-[#D4A843] transition-colors"
+                    className="text-sm text-white/80 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -101,41 +138,41 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-display text-lg font-semibold mb-2 text-[#D4A843]">Stay Rooted</h3>
-            <p className="text-sm text-green-100 mb-4">
-              Get farm updates, event news, and community stories.
+          <div className="md:col-span-4">
+            <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/50 mb-4">
+              Reach us
             </p>
-            {status === "success" ? (
-              <p className="text-sm text-[#D4A843] font-medium">You&apos;re subscribed! 🌱</p>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="px-4 py-2 rounded-lg text-sm text-[#3E2723] bg-white focus:outline-none focus:ring-2 focus:ring-[#D4A843]"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="px-4 py-2 rounded-lg bg-[#D4A843] text-[#3E2723] text-sm font-semibold hover:bg-[#e0bc6a] transition-colors disabled:opacity-60"
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="mailto:Tsucommunityfarm@gmail.com"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
-                  {status === "loading" ? "Subscribing..." : "Subscribe"}
-                </button>
-                {status === "error" && (
-                  <p className="text-xs text-red-300">Something went wrong. Try again.</p>
-                )}
-              </form>
-            )}
+                  Tsucommunityfarm@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com/tsufarm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white transition-colors"
+                >
+                  Instagram · @tsufarm
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-green-700 text-center text-xs text-green-300">
-          © 2024–{new Date().getFullYear()} TSU Community Farm. All rights reserved.
+        {/* Bottom rule */}
+        <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-4 flex-wrap">
+          <p className="text-xs text-white/40 tabular">
+            © 2024–{new Date().getFullYear()} TSU Community Farm. All rights reserved.
+          </p>
+          <p className="text-xs text-white/40">
+            Texas Southern University · Houston, TX
+          </p>
         </div>
       </div>
     </footer>

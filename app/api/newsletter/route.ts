@@ -3,7 +3,7 @@
 // then optionally adds the subscriber to ConvertKit if keys are configured.
 //
 // Required env var:
-//   RESEND_API_KEY  — from https://resend.com/api-keys
+//   RESEND_API_KEY  - from https://resend.com/api-keys
 //
 // Optional env vars (for ConvertKit list integration):
 //   CONVERTKIT_API_KEY

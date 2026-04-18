@@ -20,7 +20,7 @@ export default async function MeetTheTeamPage() {
   return (
     <div className="pt-16">
       {/* Header */}
-      <section className="relative py-24 px-4 text-white overflow-hidden">
+      <section className="relative py-32 px-5 sm:px-8 lg:px-12 text-white overflow-hidden bg-[#0A0A0A]">
         <div className="absolute inset-0">
           <Image
             src="/images/farmteam.jpg"
@@ -29,51 +29,71 @@ export default async function MeetTheTeamPage() {
             className="object-cover object-center"
             priority
             sizes="100vw"
+            style={{ filter: "saturate(0.9) contrast(1.03)" }}
           />
         </div>
-        <div className="absolute inset-0 bg-[#2D5016]/70" />
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-5xl sm:text-6xl font-bold mb-4 drop-shadow-lg">
-            Meet the Team
-          </h1>
-          <p className="text-xl text-green-100 max-w-xl mx-auto">
-          
-          </p>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/40 via-[#0A0A0A]/50 to-[#0A0A0A]/80" />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-white/50" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/75">
+                The team
+              </span>
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-medium mb-6 leading-[1.02] tracking-[-0.035em]">
+              The people<br />behind the soil.
+            </h1>
+            <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl">
+              Students, faculty, neighbors, and volunteers who show up Saturday after Saturday.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Team Photo Feature */}
-      <section className="py-20 px-4 bg-[#FAF6F0]">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/farmteam.jpg"
-                alt="TSU Community Farm team at the farm entrance"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+      <section className="py-28 px-5 sm:px-8 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-7">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#F5F5F4]">
+                <Image
+                  src="/images/farmteam.jpg"
+                  alt="TSU Community Farm team at the farm entrance"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                  style={{ filter: "saturate(0.92) contrast(1.03)" }}
+                />
+              </div>
+              <p className="mt-3 text-xs font-mono tracking-wider text-[#78716C]">
+                FARM TEAM / 2024
+              </p>
             </div>
-            <div>
-              <h2 className="font-display text-3xl font-bold text-[#2D5016] mb-6">
-                Who We Are
+            <div className="md:col-span-5">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-8 bg-[#0A0A0A]" />
+                <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+                  Who we are
+                </span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl font-medium text-[#0A0A0A] leading-[1.05] tracking-[-0.03em] mb-8">
+                A coalition of hands<br />and ideas.
               </h2>
-              <div className="space-y-4 text-[#3E2723] leading-relaxed">
+              <div className="space-y-5 text-[#292524] leading-relaxed text-[17px]">
                 <p>
-                  TSU Community Farm is powered by a passionate group of students, faculty,
-                  community leaders, and volunteers who believe in the power of growing food
-                  together.
+                  TSU Community Farm is powered by students, faculty, community leaders, and
+                  volunteers who believe in the power of growing food together.
                 </p>
                 <p>
-                  From tending the garden beds to running the Saturday Farmer&apos;s Stand, our
-                  team shows up week after week to build something meaningful in the heart of
+                  From tending garden beds to running the Saturday Farmer&apos;s Stand, our team
+                  shows up week after week to build something meaningful in the heart of
                   Houston&apos;s Third Ward.
                 </p>
                 <p>
                   We come from different backgrounds and bring different skills, but we share
-                  one common mission: Our mission is to grow for the third ward community by
-                  the community and create lasting change through sustainable agriculture.
+                  one mission: <span className="text-[#0A0A0A] font-medium">to grow for the Third Ward, by the Third Ward</span>, creating
+                  lasting change through sustainable agriculture.
                 </p>
               </div>
             </div>
@@ -83,31 +103,38 @@ export default async function MeetTheTeamPage() {
 
       {/* Team Members (from CMS) */}
       {team.length > 0 && (
-        <section className="py-20 px-4 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="font-display text-4xl font-bold text-[#2D5016] text-center mb-12">
-              Our People
+        <section className="py-28 px-5 sm:px-8 lg:px-12 bg-[#FAFAF9] border-y border-[#E7E5E4]">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-[#0A0A0A]" />
+              <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+                Our people
+              </span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl font-medium text-[#0A0A0A] tracking-[-0.03em] mb-14">
+              Meet the crew.
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {team.map((member: any) => (
-                <div key={member._id} className="bg-[#FAF6F0] rounded-2xl p-6 shadow-sm text-center border border-[#e8e0d4]">
+                <div key={member._id} className="border-t border-[#0A0A0A] pt-6">
                   {member.photo && (
-                    <div className="relative w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
+                    <div className="relative w-full aspect-square overflow-hidden mb-5 bg-[#F5F5F4]">
                       <Image
-                        src={urlFor(member.photo).width(200).height(200).url()}
+                        src={urlFor(member.photo).width(400).height(400).url()}
                         alt={member.name}
                         fill
                         className="object-cover"
-                        sizes="112px"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        style={{ filter: "saturate(0.92) contrast(1.03)" }}
                       />
                     </div>
                   )}
-                  <h3 className="font-display text-xl font-bold text-[#2D5016]">{member.name}</h3>
+                  <h3 className="font-display text-xl font-medium text-[#0A0A0A] tracking-[-0.02em]">{member.name}</h3>
                   {member.role && (
-                    <p className="text-[#C4713B] font-medium text-sm mt-1">{member.role}</p>
+                    <p className="text-[#78716C] text-[13px] font-medium mt-1">{member.role}</p>
                   )}
                   {member.bio && (
-                    <p className="text-[#3E2723] text-sm mt-3 leading-relaxed">{member.bio}</p>
+                    <p className="text-[#57534E] text-sm mt-3 leading-relaxed">{member.bio}</p>
                   )}
                 </div>
               ))}
@@ -117,25 +144,35 @@ export default async function MeetTheTeamPage() {
       )}
 
       {/* Get Involved CTA */}
-      <section className="py-20 px-4 bg-[#2D5016] text-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-4xl font-bold mb-4">Want to Get Involved?</h2>
-          <p className="text-green-100 text-lg mb-8 leading-relaxed">
-            Our team grows every season. Whether you want to volunteer, partner, or simply
-            show up and dig in, there&apos;s a place for you at TSU Community Farm.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <section className="py-28 px-5 sm:px-8 lg:px-12 bg-[#0A0A0A] text-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
+          <div className="md:col-span-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-white/50" />
+              <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/60">
+                Join us
+              </span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl font-medium leading-[1.05] tracking-[-0.03em] mb-5">
+              The team grows every season.
+            </h2>
+            <p className="text-white/70 text-base sm:text-lg leading-relaxed max-w-xl">
+              Whether you want to volunteer, partner, or simply show up and dig in, there&apos;s
+              a place for you at the farm.
+            </p>
+          </div>
+          <div className="md:col-span-4 flex flex-col sm:flex-row gap-3">
             <Link
               href="/get-involved"
-              className="px-8 py-4 rounded-full bg-[#D4A843] text-[#3E2723] font-semibold hover:bg-[#e0bc6a] transition-colors text-base"
+              className="inline-flex items-center justify-center h-11 px-5 rounded-md bg-white text-[#0A0A0A] text-sm font-medium hover:bg-white/90 transition-colors"
             >
-              Volunteer With Us
+              Volunteer
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-full bg-white/20 text-white font-semibold border border-white/40 hover:bg-white/30 transition-colors text-base backdrop-blur-sm"
+              className="inline-flex items-center justify-center h-11 px-5 rounded-md bg-white/10 border border-white/25 text-white text-sm font-medium hover:bg-white/15 transition-colors"
             >
-              Contact the Team
+              Contact
             </Link>
           </div>
         </div>

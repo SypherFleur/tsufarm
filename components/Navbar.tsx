@@ -10,10 +10,10 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Events", href: "/events" },
   { label: "Get Involved", href: "/get-involved" },
-  { label: "Meet the Team", href: "/meet-the-team" },
+  { label: "Team", href: "/meet-the-team" },
   { label: "Newsletter", href: "/newsletter" },
   { label: "Contact", href: "/contact" },
-  { label: "Support Us", href: "/support" },
+  { label: "Support", href: "/support" },
 ];
 
 export default function Navbar() {
@@ -28,56 +28,63 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
-  const navBg = isHome
-    ? scrolled
-      ? "bg-[#FAF6F0] shadow-sm"
-      : "bg-transparent"
-    : "bg-[#FAF6F0] shadow-sm";
+  const onDark = isHome && !scrolled;
 
-  const linkColor = isHome && !scrolled ? "text-white" : "text-[#3E2723]";
-  const logoColor = isHome && !scrolled ? "text-white" : "text-[#2D5016]";
+  const headerBg = onDark
+    ? "bg-transparent"
+    : "bg-white/90 backdrop-blur-md border-b border-[#E7E5E4]";
+
+  const linkColor = onDark ? "text-white/85 hover:text-white" : "text-[#292524] hover:text-[#0A0A0A]";
+  const brandColor = onDark ? "text-white" : "text-[#0A0A0A]";
+  const activeColor = onDark ? "text-white" : "text-[#0A0A0A]";
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <Image
               src="/images/logo.png"
               alt="TSU Community Farm"
-              width={52}
-              height={52}
+              width={32}
+              height={32}
               className="rounded-full"
             />
-            <span className={`font-display text-lg font-bold tracking-tight transition-colors ${logoColor}`}>
+            <span className={`text-[13px] font-semibold tracking-tight transition-colors ${brandColor}`}>
               TSU Community Farm
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.slice(1, -1).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[#C4713B] ${linkColor} ${
-                  pathname === link.href ? "border-b-2 border-[#C4713B]" : ""
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center gap-7">
+            {navLinks.slice(1, -1).map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-[13px] font-medium tracking-tight transition-colors ${
+                    isActive ? activeColor : linkColor
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/get-involved"
-              className="ml-2 px-4 py-2 rounded-full bg-[#C4713B] text-white text-sm font-semibold hover:bg-[#d4855a] transition-colors"
+              className={`ml-2 inline-flex items-center h-9 px-4 rounded-md text-[13px] font-medium transition-colors ${
+                onDark
+                  ? "bg-white text-[#0A0A0A] hover:bg-white/90"
+                  : "bg-[#0A0A0A] text-white hover:bg-[#292524]"
+              }`}
             >
               Volunteer
             </Link>
@@ -85,17 +92,17 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className={`lg:hidden p-2 rounded-md transition-colors ${linkColor}`}
+            className={`lg:hidden p-2 rounded-md transition-colors ${brandColor}`}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
             {menuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
               </svg>
             )}
           </button>
@@ -104,14 +111,14 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {menuOpen && (
-        <div className="lg:hidden bg-[#FAF6F0] border-t border-[#e8e0d4] px-4 py-4">
-          <nav className="flex flex-col gap-1">
+        <div className="lg:hidden bg-white border-t border-[#E7E5E4] px-5 py-5">
+          <nav className="flex flex-col gap-0.5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 rounded-lg text-sm font-medium text-[#3E2723] hover:bg-[#f0e8dc] transition-colors ${
-                  pathname === link.href ? "bg-[#f0e8dc] text-[#C4713B]" : ""
+                className={`px-3 py-2.5 rounded-md text-sm font-medium text-[#292524] hover:bg-[#FAFAF9] transition-colors ${
+                  pathname === link.href ? "bg-[#F5F5F4] text-[#0A0A0A]" : ""
                 }`}
               >
                 {link.label}
@@ -119,9 +126,9 @@ export default function Navbar() {
             ))}
             <Link
               href="/get-involved"
-              className="mt-2 px-4 py-2 rounded-full bg-[#C4713B] text-white text-sm font-semibold text-center hover:bg-[#d4855a] transition-colors"
+              className="mt-3 inline-flex items-center justify-center h-10 px-4 rounded-md bg-[#0A0A0A] text-white text-sm font-medium hover:bg-[#292524] transition-colors"
             >
-              Volunteer Now
+              Volunteer
             </Link>
           </nav>
         </div>

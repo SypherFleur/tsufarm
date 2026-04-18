@@ -11,52 +11,80 @@ export default function NewsletterPage() {
   return (
     <div className="pt-16">
       {/* Hero */}
-      <section className="py-24 px-4 bg-[#2D5016] text-white">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-5xl mb-6">🌾</p>
-          <h1 className="font-display text-5xl sm:text-6xl font-bold mb-6">Stay Rooted With Us</h1>
-          <p className="text-xl text-green-100 mb-10 leading-relaxed">
-            Join the TSU Community Farm mailing list for event updates, farm news, and community
-            stories. No spam, just good things growing.
-          </p>
-          <NewsletterForm variant="dark" className="max-w-md mx-auto" />
+      <section className="py-28 px-5 sm:px-8 lg:px-12 bg-[#0A0A0A] text-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-white/50" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/75">
+                Newsletter · Monthly
+              </span>
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-medium mb-6 leading-[1.02] tracking-[-0.035em]">
+              Seasonal dispatches<br />from the field.
+            </h1>
+            <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl mb-10">
+              Event updates, farm news, and community stories, delivered to your inbox.
+              No spam, just what&apos;s growing.
+            </p>
+            <div className="max-w-md">
+              <NewsletterForm variant="dark" />
+            </div>
+            <p className="mt-3 text-xs text-white/40">
+              We&apos;ll never share your email.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* What to expect */}
-      <section className="py-20 px-4 bg-[#FAF6F0]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-4xl font-bold text-[#2D5016] text-center mb-12">
-            What to Expect
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-28 px-5 sm:px-8 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-14">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-[#0A0A0A]" />
+              <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+                What to expect
+              </span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl font-medium text-[#0A0A0A] leading-[1.05] tracking-[-0.03em]">
+              Three things, monthly.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-t border-[#E7E5E4]">
             {[
               {
-                icon: "📅",
-                title: "Event Announcements",
-                text: "Be the first to know about upcoming events, special programs, and seasonal activities at the farm.",
+                n: "01",
+                title: "Event announcements",
+                text: "Be the first to know about upcoming events, programs, and seasonal happenings at the farm.",
               },
               {
-                icon: "🌿",
-                title: "Farm News",
-                text: "Seasonal updates, what's growing in the garden, and behind-the-scenes stories from the farm.",
+                n: "02",
+                title: "Farm news",
+                text: "What's growing this month, behind-the-scenes stories, and small updates from the crew.",
               },
               {
-                icon: "🏘️",
-                title: "Community Stories",
-                text: "Highlights from volunteers, partners, and community members who are growing alongside us.",
+                n: "03",
+                title: "Community stories",
+                text: "Highlights from volunteers, partners, and neighbors who are growing alongside us.",
               },
-            ].map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-8 shadow-sm border border-[#e8e0d4] text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-display text-xl font-bold text-[#2D5016] mb-3">{item.title}</h3>
-                <p className="text-[#3E2723] leading-relaxed">{item.text}</p>
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className={`py-10 pr-0 md:pr-8 ${
+                  i > 0 ? "md:pl-8 md:border-l md:border-[#E7E5E4]" : ""
+                } ${i > 0 ? "border-t md:border-t-0 border-[#E7E5E4]" : ""}`}
+              >
+                <span className="block font-mono text-[11px] tracking-widest text-[#A8A29E] mb-6">
+                  {item.n}
+                </span>
+                <h3 className="font-display text-2xl font-medium text-[#0A0A0A] mb-4 tracking-[-0.02em]">
+                  {item.title}
+                </h3>
+                <p className="text-[#57534E] leading-relaxed text-[15px]">{item.text}</p>
               </div>
             ))}
           </div>
-          <p className="text-center mt-10 text-sm text-[#3E2723]/60">
-            
-          </p>
         </div>
       </section>
     </div>

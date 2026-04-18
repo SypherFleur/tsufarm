@@ -12,79 +12,104 @@ export default function ContactPage() {
   return (
     <div className="pt-16">
       {/* Header */}
-      <section className="py-20 px-4 bg-[#2D5016] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-5xl sm:text-6xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-green-100 max-w-xl mx-auto">
-            Have questions or want to get involved? We&apos;d love to hear from you.
-          </p>
+      <section className="py-24 px-5 sm:px-8 lg:px-12 bg-[#0A0A0A] text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-white/50" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/75">
+                Contact
+              </span>
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-medium mb-6 leading-[1.02] tracking-[-0.035em]">
+              Let&apos;s grow something together.
+            </h1>
+            <p className="text-lg text-white/75 max-w-2xl leading-relaxed">
+              Questions, partnerships, press, all welcome. We read every message and get
+              back to you within a few days.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-[#FAF6F0]">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="py-24 px-5 sm:px-8 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Contact info + map */}
-          <div className="space-y-8">
+          <div className="lg:col-span-5 space-y-12">
             <div>
-              <h2 className="font-display text-3xl font-bold text-[#2D5016] mb-6">Find Us</h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">📍</span>
-                  <div>
-                    <p className="font-semibold text-[#2D5016]">Address</p>
-                    <p className="text-[#3E2723]">3216 Blodgett, Houston, TX</p>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-8 bg-[#0A0A0A]" />
+                <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+                  Find us
+                </span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl font-medium text-[#0A0A0A] tracking-[-0.03em] mb-10">
+                On the ground.<br />In the inbox.
+              </h2>
+
+              <dl className="divide-y divide-[#E7E5E4] border-y border-[#E7E5E4]">
+                <div className="grid grid-cols-3 gap-4 py-5">
+                  <dt className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#78716C] pt-1">Address</dt>
+                  <dd className="col-span-2 text-[#0A0A0A]">
+                    <p>3216 Blodgett, Houston, TX</p>
                     <a
                       href="https://maps.app.goo.gl/av9cUHyXnpRVQbCA9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-[#C4713B] hover:underline"
+                      className="inline-block mt-2 text-sm underline underline-offset-4 decoration-[#E7E5E4] hover:decoration-[#0A0A0A] transition-colors"
                     >
                       Open in Google Maps ↗
                     </a>
-                  </div>
+                  </dd>
                 </div>
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">✉️</span>
-                  <div>
-                    <p className="font-semibold text-[#2D5016]">Email</p>
+                <div className="grid grid-cols-3 gap-4 py-5">
+                  <dt className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#78716C] pt-1">Email</dt>
+                  <dd className="col-span-2">
                     <a
                       href="mailto:Tsucommunityfarm@gmail.com"
-                      className="text-[#3E2723] hover:text-[#C4713B] transition-colors"
+                      className="text-[#0A0A0A] underline underline-offset-4 decoration-[#E7E5E4] hover:decoration-[#0A0A0A] transition-colors"
                     >
                       Tsucommunityfarm@gmail.com
                     </a>
-                  </div>
+                  </dd>
                 </div>
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">📸</span>
-                  <div>
-                    <p className="font-semibold text-[#2D5016]">Instagram</p>
+                <div className="grid grid-cols-3 gap-4 py-5">
+                  <dt className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#78716C] pt-1">Instagram</dt>
+                  <dd className="col-span-2">
                     <a
                       href="https://instagram.com/tsufarm"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#3E2723] hover:text-[#C4713B] transition-colors"
+                      className="text-[#0A0A0A] underline underline-offset-4 decoration-[#E7E5E4] hover:decoration-[#0A0A0A] transition-colors"
                     >
                       @tsufarm
                     </a>
-                  </div>
+                  </dd>
                 </div>
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">🗓️</span>
-                  <div>
-                    <p className="font-semibold text-[#2D5016]">Farmer&apos;s Stand</p>
-                    <p className="text-[#3E2723]">Every Saturday 9AM–12PM</p>
-                  </div>
+                <div className="grid grid-cols-3 gap-4 py-5">
+                  <dt className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#78716C] pt-1">Hours</dt>
+                  <dd className="col-span-2 text-[#0A0A0A] tabular">
+                    Saturdays, 9:00 – 12:00
+                    <p className="text-[13px] text-[#78716C] mt-1">Farmer&apos;s Stand</p>
+                  </dd>
                 </div>
-              </div>
+              </dl>
             </div>
 
             <MapEmbed />
           </div>
 
           {/* Contact form */}
-          <div>
-            <h2 className="font-display text-3xl font-bold text-[#2D5016] mb-6">Send a Message</h2>
+          <div className="lg:col-span-7 lg:pl-8 lg:border-l lg:border-[#E7E5E4]">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-[#0A0A0A]" />
+              <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+                Send a message
+              </span>
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl font-medium text-[#0A0A0A] tracking-[-0.03em] mb-10">
+              We&apos;ll write back.
+            </h2>
             <ContactForm />
           </div>
         </div>

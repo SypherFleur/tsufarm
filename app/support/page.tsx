@@ -11,103 +11,142 @@ export default function SupportPage() {
   return (
     <div className="pt-16">
       {/* Header */}
-      <section className="py-20 px-4 bg-[#2D5016] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-5xl sm:text-6xl font-bold mb-4">Help Us Grow</h1>
-          <p className="text-xl text-green-100 max-w-xl mx-auto">
-            Every dollar, every hour, every shared post makes a difference. Here&apos;s how you can
-            support TSU Community Farm.
-          </p>
+      <section className="py-24 px-5 sm:px-8 lg:px-12 bg-[#0A0A0A] text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-white/50" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-white/75">
+                Support the farm
+              </span>
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-medium mb-6 leading-[1.02] tracking-[-0.035em]">
+              Every hour, every dollar,<br />every seed grown.
+            </h1>
+            <p className="text-lg text-white/75 max-w-2xl leading-relaxed">
+              The farm runs on the collective effort of neighbors, volunteers, partners,
+              and contributors. Here&apos;s how to join them.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Donation */}
-      <section className="py-20 px-4 bg-[#FAF6F0]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-display text-4xl font-bold text-[#2D5016] mb-6">Make a Donation</h2>
-          <p className="text-lg text-[#3E2723] max-w-2xl mx-auto mb-10 leading-relaxed">
-            Your support helps us buy seeds and tools, maintain the farm, expand our programs, and
-            keep fresh produce accessible to the whole community. Every contribution, big or small,
-            goes directly into the farm.
-          </p>
-
-          <div className="bg-white rounded-2xl p-10 border border-[#e8e0d4] shadow-sm max-w-md mx-auto">
-            <p className="text-5xl mb-4">🌱</p>
-            <h3 className="font-display text-2xl font-bold text-[#2D5016] mb-3">
-              Donation Coming Soon
-            </h3>
-            <p className="text-[#3E2723] mb-6">
-              We&apos;re setting up our donation portal. In the meantime, reach out to us directly
-              to contribute.
+      <section className="py-28 px-5 sm:px-8 lg:px-12 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-[#0A0A0A]" />
+              <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+                01 / Contribute
+              </span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl font-medium text-[#0A0A0A] leading-[1.05] tracking-[-0.03em] mb-5">
+              Make a donation.
+            </h2>
+            <p className="text-[#57534E] leading-relaxed text-[17px]">
+              Your support buys seeds and tools, maintains the farm, expands our programs,
+              and keeps fresh produce accessible to the whole community. Every contribution,
+              however small, goes directly into the soil.
             </p>
-            <a
-              href="mailto:Tsucommunityfarm@gmail.com?subject=Donation Inquiry"
-              className="inline-block px-8 py-3 rounded-full bg-[#2D5016] text-white font-semibold hover:bg-[#3d6b1f] transition-colors"
-            >
-              Contact Us to Donate
-            </a>
+          </div>
+
+          <div className="md:col-span-7">
+            <div className="border border-[#E7E5E4] p-10 bg-[#FAFAF9]">
+              <span className="block font-mono text-[11px] tracking-widest text-[#78716C] mb-4">
+                / IN DEVELOPMENT
+              </span>
+              <h3 className="font-display text-2xl sm:text-3xl font-medium text-[#0A0A0A] tracking-[-0.025em] leading-[1.15] mb-4">
+                Direct donation portal, coming soon.
+              </h3>
+              <p className="text-[#57534E] text-[15px] leading-relaxed mb-6">
+                We&apos;re finalizing our donation infrastructure. In the interim, please reach
+                out directly and we&apos;ll coordinate your contribution personally.
+              </p>
+              <a
+                href="mailto:Tsucommunityfarm@gmail.com?subject=Donation Inquiry"
+                className="inline-flex items-center h-11 px-5 rounded-md bg-[#0A0A0A] text-white text-sm font-medium hover:bg-[#292524] transition-colors"
+              >
+                Contact us to donate
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Other ways */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-display text-4xl font-bold text-[#2D5016] text-center mb-12">
-            Other Ways to Support
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="py-28 px-5 sm:px-8 lg:px-12 bg-[#FAFAF9] border-t border-[#E7E5E4]">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-14">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-[#0A0A0A]" />
+              <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+                02 / Other paths in
+              </span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl font-medium text-[#0A0A0A] leading-[1.05] tracking-[-0.03em]">
+              Four ways to help us grow.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-[#E7E5E4]">
             {[
               {
-                icon: "🙌",
+                n: "01",
                 title: "Volunteer",
                 text: "Spend a Saturday morning with us. Your time and energy are the farm's greatest resource.",
                 link: "/get-involved",
-                cta: "Volunteer Now",
+                cta: "Volunteer",
               },
               {
-                icon: "📢",
-                title: "Spread the Word",
-                text: "Follow us on Instagram, share our posts, and tell a friend about the farm. Community starts with connection.",
+                n: "02",
+                title: "Spread the word",
+                text: "Follow us on Instagram, share our posts, and tell a friend. Community starts with connection.",
                 link: "https://instagram.com/tsufarm",
                 cta: "Follow @tsufarm",
                 external: true,
               },
               {
-                icon: "🛒",
-                title: "Shop the Stand",
-                text: "Visit our Farmer's Stand every Saturday 9AM–12PM at 3216 Blodgett. Buy fresh, support local.",
+                n: "03",
+                title: "Shop the stand",
+                text: "Visit every Saturday, 9 AM – 12 PM at 3216 Blodgett. Buy fresh, support local.",
                 link: "/events",
-                cta: "See Events",
+                cta: "See events",
               },
               {
-                icon: "🤝",
-                title: "Partner With Us",
-                text: "Organizations, businesses, and institutions. Let's grow something together.",
+                n: "04",
+                title: "Partner with us",
+                text: "For organizations, businesses, and institutions. Let's grow something together.",
                 link: "/contact",
-                cta: "Get in Touch",
+                cta: "Get in touch",
               },
-            ].map((item) => (
+            ].map((item, i) => (
               <div
                 key={item.title}
-                className="bg-[#FAF6F0] rounded-2xl p-6 border border-[#e8e0d4] flex flex-col"
+                className={`py-10 px-0 sm:px-6 ${
+                  i > 0 ? "sm:border-l sm:border-[#E7E5E4]" : ""
+                } ${i > 0 ? "border-t sm:border-t-0 border-[#E7E5E4]" : ""} flex flex-col`}
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-display text-xl font-bold text-[#2D5016] mb-2">{item.title}</h3>
-                <p className="text-[#3E2723] text-sm leading-relaxed flex-1 mb-5">{item.text}</p>
+                <span className="block font-mono text-[11px] tracking-widest text-[#A8A29E] mb-6">
+                  {item.n}
+                </span>
+                <h3 className="font-display text-xl font-medium text-[#0A0A0A] mb-3 tracking-[-0.02em]">{item.title}</h3>
+                <p className="text-[#57534E] text-[14px] leading-relaxed flex-1 mb-6">{item.text}</p>
                 {item.external ? (
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-[#C4713B] hover:underline underline-offset-4"
+                    className="text-sm font-medium text-[#0A0A0A] underline underline-offset-4 decoration-[#E7E5E4] hover:decoration-[#0A0A0A] transition-colors self-start"
                   >
                     {item.cta} →
                   </a>
                 ) : (
                   <Link
                     href={item.link}
-                    className="text-sm font-semibold text-[#C4713B] hover:underline underline-offset-4"
+                    className="text-sm font-medium text-[#0A0A0A] underline underline-offset-4 decoration-[#E7E5E4] hover:decoration-[#0A0A0A] transition-colors self-start"
                   >
                     {item.cta} →
                   </Link>

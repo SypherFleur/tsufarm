@@ -4,56 +4,73 @@ import { motion } from "framer-motion";
 
 const cards = [
   {
-    icon: "🔍",
+    label: "01",
     title: "Discover",
     description:
-      "Explore the wonders of urban agriculture and learn how food grows from seed to harvest right here in Houston.",
+      "Learn how urban agriculture turns vacant lots into living classrooms, from seed selection to harvest, right in the heart of Houston.",
   },
   {
-    icon: "🤝",
+    label: "02",
     title: "Connect",
     description:
-      "Build lasting bonds with your neighbors, TSU students, and community members around shared meals and shared work.",
+      "Build lasting relationships with neighbors, TSU students, and community partners through shared work, shared meals, and shared purpose.",
   },
   {
-    icon: "🌱",
+    label: "03",
     title: "Grow",
     description:
-      "Develop skills, deepen roots, and help us expand access to fresh produce and green spaces for everyone.",
+      "Develop skills, deepen roots, and expand access to fresh produce and green space, for the Third Ward and beyond.",
   },
 ];
 
 export default function MissionCards() {
   return (
-    <section className="py-20 px-4 bg-[#FAF6F0]">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-28 px-5 sm:px-8 lg:px-12 bg-white">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-3xl mb-16"
         >
-          <h2 className="font-display text-4xl font-bold text-[#2D5016] mb-4">Our Mission</h2>
-          <p className="text-lg text-[#3E2723] max-w-2xl mx-auto">
-            Founded in 2024, TSU Community Farm is a space where students, neighbors, and dreamers
-            come together to cultivate food, community, and connection at Texas Southern University.
+          <div className="flex items-center gap-3 mb-6">
+            <span className="h-px w-8 bg-[#0A0A0A]" />
+            <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#57534E]">
+              Our Mission
+            </span>
+          </div>
+          <h2 className="font-display text-4xl sm:text-5xl font-medium text-[#0A0A0A] leading-[1.05] tracking-[-0.03em] mb-6">
+            A community farm built on three commitments.
+          </h2>
+          <p className="text-[#57534E] text-base sm:text-lg leading-relaxed max-w-2xl">
+            Founded in 2024, TSU Community Farm grows fresh food for the Third Ward to
+            reduce food insecurity in our community, one harvest, one neighbor, and one
+            Saturday at a time.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-[#E7E5E4]">
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-[#e8e0d4] hover:shadow-md transition-shadow"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+              className={`py-10 pr-0 md:pr-8 ${
+                i > 0 ? "md:pl-8 md:border-l md:border-[#E7E5E4]" : ""
+              } ${i > 0 ? "border-t md:border-t-0 border-[#E7E5E4]" : ""}`}
             >
-              <div className="text-4xl mb-4">{card.icon}</div>
-              <h3 className="font-display text-2xl font-bold text-[#2D5016] mb-3">{card.title}</h3>
-              <p className="text-[#3E2723] leading-relaxed">{card.description}</p>
+              <span className="block font-mono text-[11px] tracking-widest text-[#A8A29E] mb-6">
+                {card.label}
+              </span>
+              <h3 className="font-display text-2xl font-medium text-[#0A0A0A] mb-4 tracking-[-0.02em]">
+                {card.title}
+              </h3>
+              <p className="text-[#57534E] leading-relaxed text-[15px]">
+                {card.description}
+              </p>
             </motion.div>
           ))}
         </div>
